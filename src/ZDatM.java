@@ -291,7 +291,7 @@ public class ZDatM {
 		
 		int sortDA(int iox){ //Sortieren Allter Knoten der dsliste nach direkter wahl
 			int i=0;
-List<Maschine> hlist = new LinkedList<Maschine>();
+			List<Maschine> hlist = new LinkedList<Maschine>();
 			String stelle_ds=null,stelle_hl_hint=null,stelle_hl_akt=null;
 			double wert_ds=0, wert_hl_hint=0, wert_hl_akt=0;
 			int pruef,pruef2,listrange;
