@@ -1,0 +1,15 @@
+123;456.34;Machiene0;Ort0
+5426;943.0;Machiene2;Ort2
+789;33.98;Machiene4;Ort4
+564;23.0;Machiene6;Ort6
+1252;654.5;Machiene7;Ort7
+123;456.34;Machiene23;Ort0
+5468;943.0;Machiene8;Ort8
+7859;33.98;Machiene5;Ort5
+564;23.0;Machiene10;Ort22
+122;65.5;Machiene11;Ort10
+1252;65454.5;Machiene7;Ort7
+123;456.34;Machiene15;Ort0
+5486;943.0;Machiene8;Ort8
+7589;323.98;Machiene5;Ort5
+5642;23.30;Machiene10;Ort22
