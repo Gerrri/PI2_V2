@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -158,190 +157,111 @@ public class ZDatM {
 		
 		
 		
-		//#######################################################################
-		
-		/*
-		 public int sortDA(int iox) throws IOException {
-
-
-
-		        ArrayList<Maschine> hlist = new ArrayList<Maschine>();
-		        int h = 0;
-
-		        int a=0;
-		        int b =0;
-		        int c=0;
-
-		        switch (iox) {
-		            case 1:
-
-		                for (int i = 0; i < dsliste.size(); i++) {
-		                    if (hlist.size()==0) {
-		                        hlist.add(dsliste.get(i));
-		                    } else if (dsliste.get(i).getMabez().compareTo(hlist.get(0).getMabez()) < 0 ) {
-		                        h++;
-		                        hlist.add(0, dsliste.get(i));
-		                        a++;
-
-		                    } else if (dsliste.get(i).getMabez().compareTo(hlist.get(hlist.size()-1).getMabez()) > 0 ) {
-		                        h++;
-		                        hlist.add(dsliste.get(i));
-		                        b++;
-
-		                    }
-		                    for (int j = 0; j < hlist.size(); j++) {
-		                        int k = j + 1;
-
-		                        if (dsliste.get(i).getMabez().compareTo(hlist.get(j).getMabez()) > 0  &&
-		                                dsliste.get(i).getMabez().compareTo(hlist.get(k).getMabez()) < 0 ) {
-		                            hlist.add(k, dsliste.get(i));
-		                            h++;
-		                            c++;
-
-		                        }
-		                    }
-		                }
-
-		                if (hlist.size() == dsliste.size()) {
-		                    dsliste = hlist;
-		                }
-		                break;
-		            case 2:
-
-		                for (int i = 0; i < dsliste.size(); i++) {
-		                    if (hlist.size()==0) {
-		                        hlist.add(dsliste.get(i));
-		                    } else if (String.valueOf(dsliste.get(i).getPreis()).compareTo(String.valueOf(hlist.get(0).getPreis()) ) < 0 ) {
-		                        h++;
-		                        hlist.add(0, dsliste.get(i));
-		                        a++;
-
-		                    } else if (String.valueOf(dsliste.get(i).getPreis()).compareTo(String.valueOf(hlist.get(0).getPreis()) ) > 0 ) {
-		                        h++;
-		                        hlist.add(dsliste.get(i));
-		                        b++;
-
-		                    }
-		                    for (int j = 0; j < hlist.size(); j++) {
-		                        int k = j + 1;
-
-		                        if (String.valueOf(dsliste.get(i).getPreis()).compareTo(String.valueOf(hlist.get(j).getMabez())) > 0  &&
-		                                String.valueOf(dsliste.get(i).getPreis()).compareTo(String.valueOf(hlist.get(j).getMabez())) < 0) {
-		                            hlist.add(k, dsliste.get(i));
-		                            h++;
-		                            c++;
-
-		                        }
-		                    }
-		                }
-
-		                if (hlist.size() == dsliste.size()) {
-		                    dsliste = hlist;
-		                }
-		                break;
-		            case 3:
-
-		                for (int i = 0; i < dsliste.size(); i++) {
-		                    if (hlist.size()==0) {
-		                        hlist.add(dsliste.get(i));
-		                    } else if (dsliste.get(i).getStao().compareTo(hlist.get(0).getStao()) < 0 ) {
-		                        h++;
-		                        hlist.add(0, dsliste.get(i));
-		                        a++;
-
-		                    } else if (dsliste.get(i).getStao().compareTo(hlist.get(hlist.size()-1).getStao()) > 0 ) {
-		                        h++;
-		                        hlist.add(dsliste.get(i));
-		                        b++;
-
-		                    }
-		                    for (int j = 0; j < hlist.size(); j++) {
-		                        int k = j + 1;
-
-		                        if (dsliste.get(i).getStao().compareTo(hlist.get(j).getStao()) > 0  &&
-		                                dsliste.get(i).getStao().compareTo(hlist.get(k).getStao()) < 0 ) {
-		                            hlist.add(k, dsliste.get(i));
-		                            h++;
-		                            c++;
-
-		                        }
-		                    }
-		                }
-
-		                if (hlist.size() == dsliste.size()) {
-		                    dsliste = hlist;
-		                }
-		                break;
-
-		        }
-		        for(int x =0; x < dsliste.size();x++){
-		            System.out.println(dsliste.get(x).getMabez());
-		        }
-		        System.out.println("a"+a);
-		        System.out.println("b"+b);
-		        System.out.println("c"+c);
-
-		        return h;
-		    }
-		
-		*/
-		
-		
-		
-		
 		int sortDA(int iox){ //Sortieren Allter Knoten der dsliste nach direkter wahl
-			int i=0;
+			int anz_vergl=0;
 			List<Maschine> hlist = new LinkedList<Maschine>();
-			String stelle_ds=null,stelle_hl_hint=null,stelle_hl_akt=null;
-			double wert_ds=0, wert_hl_hint=0, wert_hl_akt=0;
-			int pruef,pruef2,listrange;
+			String stelle_ds=null,stelle_hl_hint=null;
+			double wert_ds=0, wert_hl_hint=0;
+			int pruef;
 		
-			while (hlist.size()!=(dsliste.size()-1)){
+			
+			for(int j=0;j<(dsliste.size());j++){
+				if(hlist.size()==0){				// FAll 1 -> Liste Leer
+					hlist.add(dsliste.get(0));
+				}
 				
-				if(iox == 1 || iox == 3){
-						switch(iox){
-							case 1: stelle_ds = dsliste.get(i).getMabez();
-									if(hlist.size()!=0){stelle_hl_hint = hlist.get(i-1).getMabez();}
+				else if (iox == 1 || iox ==3) {
+					
+					
+					switch(iox){
+						case 1: 	stelle_ds = dsliste.get(j).getMabez(); // Eintrag an stelle j von mabez wird zwischengespeichert
+									stelle_hl_hint = hlist.get(hlist.size()-1).getMabez();
 									break;
 									
-							case 3: stelle_ds = dsliste.get(i).getStao();
-									if(hlist.size()!=0){stelle_hl_hint = hlist.get(i-1).getStao();}
+						case 3:		stelle_ds = dsliste.get(j).getStao(); // Eintrag an stelle j von stao wird zwischengespeichert
+									stelle_hl_hint = hlist.get(hlist.size()-1).getStao();
 									break;
+					}
+					
+					
+					
+					pruef = stelle_ds.compareTo(stelle_hl_hint);
+					if(stelle_ds.equals(stelle_hl_hint)){
+						hlist.add(dsliste.get(j));
+					}
+					
+					else if(pruef > 0){
+						hlist.add(dsliste.get(j));
+					}
+					
+					
+					else if (pruef <0 && iox==1){
+						int[] vgl = new int[hlist.size()];
+						for(int i=0;i<hlist.size();i++){
+						
+							vgl[i] = stelle_ds.compareTo(hlist.get(i).getMabez());
 						}
-						
-				
-					if(hlist.size()==0){hlist.add(dsliste.get(i));} // erste stelle der hlist(ANKER)
-				
-					else{
-						pruef = stelle_ds.compareTo(stelle_hl_hint);
-						
-						if(pruef > 0){hlist.add(dsliste.get(i));}
-						else{
-							listrange = hlist.size();
-							
-							for(int j=0;j<listrange;j++){
-								pruef2=stelle_ds.compareTo(hlist.get(j).getMabez()); // ACHTUNG MABEZ HARDCODED!!!
-								
-								if(pruef2 >= 0){
-									hlist.add(j,dsliste.get(i));
-									break;
-								}
+						int stelle=0;
+						for (int k=0; k<vgl.length;k++){
+							if(vgl[k]>0){
+							stelle ++;
 							}
 						}
-					}	
-				}
-				
-				else if(iox == 2){
+						hlist.add(stelle, dsliste.get(j));
+					}
+					
+					else if (pruef <0 && iox==3){
+						int[] vgl = new int[hlist.size()];
+						for(int i=0;i<hlist.size();i++){
+						
+							vgl[i] = stelle_ds.compareTo(hlist.get(i).getStao());
+						}
+						int stelle=0;
+						for (int k=0; k<vgl.length;k++){
+							if(vgl[k]>0){
+							stelle ++;
+							}
+						}
+						hlist.add(stelle, dsliste.get(j));
+					}
+					
+					
 					
 				}
-				
-				i++;
-			}
+					
+				else if (iox == 2) { 
+					
+					wert_ds = dsliste.get(j).getPreis(); // Eintrag an stelle j von preis wird zwischengespeichert
+					wert_hl_hint = hlist.get(hlist.size()-1).getPreis();
+					if (wert_hl_hint == wert_ds){
+						hlist.add(dsliste.get(j));
+					}
+					else if(wert_hl_hint < wert_ds){
+						hlist.add(dsliste.get(j));
+					}
+					
+					else if (wert_hl_hint > wert_ds){
+							double[] vgl = new double[hlist.size()];
+							for(int i=0;i<hlist.size();i++){
+								vgl[i] = hlist.get(i).getPreis() - dsliste.get(j).getPreis();
+							}
+							int stelle=0;
+							for (int k=0; k<vgl.length;k++){
+								if(vgl[k]<=0){
+									stelle++;
+								}
+							}
+							hlist.add(stelle, dsliste.get(j));
+						}
+					}
+				anz_vergl++;
+				}
+					
 			
+		
 		dsliste = hlist;
-		return i;
+		return anz_vergl;
 		}	
-			
 		
 
 		static void List_Ausgabe(List<Maschine> Maschine_List) {

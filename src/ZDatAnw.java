@@ -8,15 +8,13 @@ public class ZDatAnw {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		int auswahl=0;
 		//List<Maschine> MaschListe = new LinkedList<Maschine>();
-		ZDatM lesenZDatM = new ZDatM("test2.TXT",1);
+		ZDatM lesenZDatM = new ZDatM("test.TXT",1);
 		ZDatM schreibenZDatM;
 		
 		
 		
 		
 		//System.out.println("[LOG] testZDatM.einlesen() [Ausgeführt]");
-		
-		
 		
 		
 		
@@ -69,6 +67,8 @@ public class ZDatAnw {
 		
 		
 	}
+	
+	
 	
 	static void List_Ausgabe(List<Maschine> Maschine_List) {
 		int n = Maschine_List.size();
