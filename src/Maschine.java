@@ -10,6 +10,7 @@ public class Maschine {
 
 	}
 
+	
 	/*
 	 * Maschine(int e_manr, double e_preis, String e_mabez,String e_stao,int
 	 * e_crt){ if (set_manr(e_manr) || set_preis(e_preis) || set_mabez(e_mabez)
