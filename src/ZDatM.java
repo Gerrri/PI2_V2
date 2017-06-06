@@ -260,6 +260,8 @@ public class ZDatM {
 			
 		
 		dsliste = hlist;
+		System.out.println("######## SORTIERT ! #########");
+		List_Ausgabe(dsliste);
 		return anz_vergl;
 		}	
 		
